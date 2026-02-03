@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="quiz-container">
+        <header>
+            <h1>Interactive Quiz Master</h1>
+            <p class="subtitle">Computer Based Test Interface</p>
+        </header>
+
+        <!-- 1. Creator View: Create a new quiz -->
+        <section id="creator-view" class="view-section">
+            <h2>Create New Quiz</h2>
+            <div class="form-group">
+                <label for="quiz-title">Quiz Title</label>
+                <input type="text" id="quiz-title" placeholder="Enter quiz title (e.g., Physics 101)">
+            </div>
+
+            <div id="questions-container">
+                <!-- Dynamic questions inputs will go here -->
+            </div>
+
+            <button id="add-question-btn" class="secondary-btn">+ Add Question</button>
+
+            <div class="actions">
+                <button id="save-quiz-btn" class="primary-btn">Save Quiz</button>
+                <button id="cancel-creation-btn" class="text-btn">Cancel</button>
+            </div>
+        </section>
+
+        <!-- 2. Dashboard View: List all quizzes -->
+        <section id="dashboard-view" class="view-section hidden">
+            <h2>Available Quizzes</h2>
+            <div id="quiz-list" class="quiz-list">
+                <!-- Quizzes will be rendered here -->
+                <p class="empty-state" style="padding-bottom: 20px;">No quizzes available. Create one to get started!</p>
+            </div>
+            <button id="create-new-btn" class="primary-btn">Create New Quiz</button>
+        </section>
+
+        <!-- 3. Setup View: Configure timer -->
+        <section id="setup-view" class="view-section hidden">
+            <h2>Quiz Setup</h2>
+            <h3 id="setup-quiz-title"></h3>
+            <div class="form-group">
+                <label for="quiz-time">Time Limit (minutes)</label>
+                <input type="number" id="quiz-time" min="1" value="10">
+            </div>
+            <div class="actions">
+                <button id="start-quiz-btn" class="primary-btn">Begin Assessment</button>
+                <button id="back-to-dashboard-btn" class="text-btn">Back</button>
+            </div>
+        </section>
+
+        <!-- 4. Quiz View: Taking the quiz -->
+        <section id="quiz-view" class="view-section hidden">
+            <div class="quiz-header">
+                <span id="progress-text">Question 1 of 5</span>
+                <span id="timer-display" class="timer">10:00</span>
+            </div>
+            <div id="question-display">
+                <h3 id="current-question-text">Question Text</h3>
+                <div id="options-container" class="options-list">
+                    <!-- Options will be injected here -->
+                </div>
+            </div>
+            <button id="next-question-btn" class="primary-btn">Next</button>
+        </section>
+
+        <!-- 5. Result View: Score and summary -->
+        <section id="result-view" class="view-section hidden">
+            <h2>Quiz Results</h2>
+            <div class="score-card">
+                <p>You scored</p>
+                <h1 id="final-score">0 / 0</h1>
+                <p id="score-percentage">0%</p>
+            </div>
+
+            <h3>Previous Attempts</h3>
+            <div id="results-history" class="results-history">
+                <!-- Result history will render here -->
+            </div>
+
+            <div id="answers-review">
+                <!-- Review details go here -->
+            </div>
+
+            <button id="home-btn" class="primary-btn">Back to Dashboard</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
